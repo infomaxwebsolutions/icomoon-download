@@ -6,6 +6,8 @@ const tmp = require('tmp');
 
 class IcomoonPull {
   constructor() {
+    var args = process.argv.slice(2);
+
     fs.readFile('./.icomoonrc.json', 'utf8', (err, data) => {
       if (err) {
         console.error('Error reading .icomoonrc.json file. Please create one. See README.md for more information.');
@@ -13,6 +15,9 @@ class IcomoonPull {
       }
 
       for (let key in JSON.parse(data)) {
+        if (args.length > 0 && !args.includes(key)) {
+          continue;
+        }
         try {
           this.run(key, JSON.parse(data)[key]);
         } catch (e) {

@@ -26,6 +26,7 @@ Create .icomoonrc.json in your project root and add the icomoon links you want t
 }
 ```
 
+To pull only some of the icomoon fonts, just add the name of the icomoon link to the command. E.g. `npx icomoon-pull first second`.
 
 ### Options
 
